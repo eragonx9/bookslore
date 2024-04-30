@@ -5,27 +5,37 @@ import { Link } from 'react-router-dom';
 
 const ManageBooks = () => {
     const [allBooks, setAllBooks] = useState([]);
+    
     useEffect(() => {
-        fetch(`http://localhost:5000/all-books`)
-            .then((res) => res.json())
-            .then((data) => {
-                // console.log(data);
-                setAllBooks(data);
-            });
-    }, []);
+        fetchBooks();
+      }, []);
 
-    // delete a books
-    const handleDelete = (id) => {
-        // console.log(id)
-        fetch(`http://localhost:5000/book/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            // console.log(data);
-            // setAllBooks(data);
-          });
+    const fetchBooks = async () => {
+        try {
+          const response = await fetch('http://localhost:5000/all-books');
+          const data = await response.json();
+          setAllBooks(data);
+        } catch (error) {
+          console.error('Error fetching books:', error);
+        }
       };
+
+
+    // delete a book
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5000/book/${id}`, {
+                method: 'DELETE',
+            });
+            const result = await response.json();
+            if (result) {
+                fetchBooks(); // Refresh books after removing one
+            }
+        } catch (error) {
+            console.error('Error removing book:', error);
+        }
+    };
+    
 
 
     // pagination

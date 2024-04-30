@@ -10,7 +10,7 @@ const FavoriteBook = () => {
         </div>
         <div className='space-y-6 md:w-1/2'>
             <h2 className='text-5xl my-5 font-bold md:w-3/4 leading-snug'>Find Your Favorite <span className='text-blue-600'>Book Here!</span></h2>
-            <p className='mb-10 text-lg md:w-5/6'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum ut pariatur quia. Sint architecto tempore sapiente quibusdam et aliquid impedit ullam</p>
+            <p className='mb-10 text-lg md:w-5/6'>Get your favourite books right now!!!</p>
             <div className='flex flex-col sm:flex-row justify-between gap-6 md:w-3/4 my-14'>
               <div>
                 <h3 className='text-3xl font-bold '>800+</h3>

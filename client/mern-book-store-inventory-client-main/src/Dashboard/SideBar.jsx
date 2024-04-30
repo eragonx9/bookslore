@@ -19,7 +19,7 @@ const SideBar = () => {
           imgAlt="Flowbite logo"
         >
           <p>
-            {user?.displayName || "Demo User" }
+            {user?.displayName || "Logged in" }
           </p>
         </Sidebar.Logo>
         <Sidebar.Items>

@@ -60,12 +60,20 @@ async function run() {
 
     })
 
-    app.delete("/book/:id",async(req,res)=>{
-        const id=req.params.id;
-        const filter={_id:  ObjectId(id)};
-        const result= await bookCollection.deleteOne(filter);
-        res.send(result);
-    })
+    app.delete("/book/:id", async (req, res) => {
+      try {
+          const id = req.params.id;
+          const filter = {_id:  new ObjectId(id)};
+
+          const result = await bookCollection.deleteOne(filter);
+          res.json(result); // Sending the result of the deletion operation
+      } catch (error) {
+          console.error("Error deleting book:", error);
+          res.status(500).json({ message: "Internal server error" });
+      }
+  });
+  
+
     app.get("/all-books",async(req,res)=>{
       let query={};
       if(req.query?.category){
