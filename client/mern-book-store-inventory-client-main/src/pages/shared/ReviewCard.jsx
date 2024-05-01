@@ -17,7 +17,7 @@ const ReviewCard = () => {
 
             {/* texts */}
             <div className='mt-7'>
-                <p className='mb-5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel voluptatibus libero eaque illo voluptate ducimus commodi, eos, quam repellendus, officiis esse cum alias nemo blanditiis dolore quas officia molestiae accusantium!</p>
+                <p className='mb-5'>Book lovers unite</p>
                 <Avatar
                     alt="avatar of Jese"
                     img={profile}
